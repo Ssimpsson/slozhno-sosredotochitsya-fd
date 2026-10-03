@@ -8,4 +8,8 @@
   --headline-color: var(--accent-color);
   --decorated-color: var(--accent-color);
   --button-color: var(--accent-color);
+
+  .rec {
+    visibility: visible;
+  }
 }

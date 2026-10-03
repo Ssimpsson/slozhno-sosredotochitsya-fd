@@ -8,6 +8,7 @@
   --text-color: var(--base-color);
   --decorated-color: var(--base-color);
   --button-color: var(--base-color);
+  
   .rec {
     visibility: hidden;
   }
