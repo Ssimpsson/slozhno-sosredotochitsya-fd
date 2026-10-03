@@ -1,5 +1,341 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
-
 .page {
-  /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
+  font-family: 'IBM Plex Mono', sans-serif;
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-color: var(--bg-color);
+  display: grid;
+  gap: 40px;
+}
+
+.header{
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 55px;
+  height: 100vh;
+  min-height: 668px;
+}
+
+.rec-indicator {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 3px 10px;
+}
+
+.rec {
+  font-size: var(--accent-size);
+  text-transform: uppercase;
+  color: var(--accent-color);
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.rec::after {
+  content: '';
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+  box-shadow: 0 0 5px 3px var(--accent-color);
+}
+
+.decorated-zone {
+  position: relative;
+}
+
+.decorated-zone::before,
+.decorated-zone::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+}
+
+.decorated-zone::before {
+  top: 10px;
+  right: 10px;
+  border-top: 1px solid var(--decorated-color);
+  border-right: 1px solid var(--decorated-color);
+}
+
+.decorated-zone::after {
+  bottom: 10px;
+  left: 10px;
+  border-bottom: 1px solid var(--decorated-color);
+  border-left: 1px solid var(--decorated-color);
+}
+
+.header__theme-menu {
+  justify-self: end;
+  align-self: end;
+  line-height: 21px;
+  margin: 0 10px 12px 0;
+}
+
+.header__theme-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.header__theme-menu-button {
+  background-color: transparent;
+  border: none;
+  color: var(--button-color);
+  font-size: var(--accent-size);
+  padding: 2px 13px;
+  text-transform: lowercase;
+  border-bottom: 1px solid transparent;
+}
+
+.header__theme-menu-button:hover {
+  cursor: pointer;
+  outline: 1px solid color-mix(in srgb, var(--button-color) 30%, transparent);
+}
+
+.header__theme-menu-button:focus-visible {
+  outline: none;
+  border-bottom: 1px solid var(--button-color);
+}
+
+.header__theme-menu-button_active {
+  pointer-events: none;
+  outline: 1px solid var(--button-color);
+}
+
+.accent__title {
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  font-weight: var(--weight-bold);
+  line-height: 82.5%;
+  color: var(--logo-color);
+  text-shadow: 4px 4px 0 var(--accent-color);
+}
+
+.header__logo {
+  padding-left: 10px;
+}
+
+.header__text {
+  font-size: var(--accent-size);
+  font-weight: var(--weight-bold);
+  line-height: 24px;
+  width: clamp(355px, 50%, 490px);
+  height: fit-content;
+  justify-self: end;
+  margin: 0 10px;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 50px;
+  margin: 0 10px;
+}
+
+.section {
+  display: grid;
+  gap: 20px;
+}
+
+.section:last-child {
+  gap: 10px;
+}
+
+.section__content {
+  display: grid;
+  gap: 20px;
+}
+
+
+.headline {
+  color: var(--headline-color);
+}
+
+.title {
+  font-size: var(--accent-size);
+  font-weight: var(--weight-bold);
+}
+
+.title-decor {
+  color: var(--base-color);
+  background-color: var(--accent-color);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 20px;
+}
+
+.text {
+  font-size: var(--accent-size);
+  font-weight: var(--weight-regular);
+  line-height: 130%;
+}
+
+.text-decor {
+  color: var(--text-color);
+}
+
+.link-decor {
+  text-decoration: none;
+  text-shadow: 2px 1px 0 var(--accent-color);
+}
+
+.link-decor:hover {
+  text-decoration: underline;
+}
+
+.link-decor:focus-visible {
+  outline: 1px solid var(--text-color);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6px;
+  min-width: 355px;
+}
+
+.gallery__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.footer {
+  height: 100vh;
+  min-height: 668px;
+}
+
+.footer__logo {
+  height: 100%;
+  justify-self: center;
+  align-content: center;
+  text-shadow: 2px 2px 0 var(--accent-color);
+}
+
+@media (width >= 768px) {
+  :root {
+    .page {
+      gap: 60px;
+    }
+
+    .rec-indicator,
+    .decorated-zone::before {
+      top: 20px;
+      right: 20px;
+    }
+
+    .decorated-zone::after {
+      bottom: 20px;
+      left: 20px;
+    }
+
+    .header__theme-menu {
+      margin: 0 20px 12px 0;
+    }
+
+    .accent__title {
+      font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+      align-self: center;
+    }
+
+    .header__logo {
+      padding-left: 0;
+    }
+
+    .header__text {
+      margin: 0 20px;
+    }
+
+    .main {
+      gap: 80px;
+      margin: 0 20px;
+    }
+
+    .section {
+      gap: 20px;
+    }
+
+    .section__position {
+      grid-template-columns: 1fr 2fr;
+    }
+
+    .section__concentration-tittle {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+    }
+
+    .gallery {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 192px 230px 318px;
+      gap: 20px;
+      grid-template-areas: 
+        "top-land top-land right-vert"
+        "left-vert center-sq right-vert"
+        "left-vert bot-land bot-land";
+    }
+
+    .gallery__image__landscape-top {
+      grid-area: top-land;
+    } 
+
+    .gallery__image__vertical-right {
+      grid-area: right-vert;
+    }
+
+    .gallery__image__vertical-left {
+      grid-area: left-vert;
+    }
+
+    .gallery__image__square-center {
+      grid-area: center-sq;
+    }
+
+    .gallery__image__landscape-bottom {
+      grid-area: bot-land;
+    }
+  }
+}
+
+@media (width >= 1024px) {
+  :root {
+    .header {
+      gap: 76px;
+    }
+
+    .header__theme-menu {
+      justify-self: center;
+      align-self: start;
+      margin: 20px 0 0 0;
+    }
+
+    .header__theme-menu-list {
+      flex-direction: row;
+    }
+
+    .section__concentration-tittle {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .section__concentration {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .gallery {
+      grid-template-rows: 260px 315px 433px;
+    }
+  }
 }
